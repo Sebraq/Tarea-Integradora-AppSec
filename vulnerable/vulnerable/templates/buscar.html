@@ -1,0 +1,23 @@
+{% extends "base.html" %}{% block c %}
+<h2>Buscar estudiantes</h2>
+<form method="get">
+  <input name="q" value="{{ q }}" /><button>Buscar</button>
+</form>
+{% if q %}
+<p>Resultados para: {{ q|safe }}</p>
+{% endif %}
+<table>
+  <tr>
+    <th>Carnet</th>
+    <th>Nombre</th>
+    <th>Expediente</th>
+  </tr>
+  {% for r in rows %}
+  <tr>
+    <td>{{ r.carnet }}</td>
+    <td>{{ r.nombre }} {{ r.apellido }}</td>
+    <td><a href="/expediente/{{ r.id }}">ver</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

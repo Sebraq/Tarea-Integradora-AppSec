@@ -1,0 +1,3 @@
+{% extends "base.html" %}{% block c %}<h2>Comentarios</h2>
+<form method="post"><textarea name="texto" rows="3" cols="50"></textarea><br><button>Publicar</button></form>
+{% for r in rows %}<p><b>{{ r.autor }}:</b> {{ r.texto|safe }}</p>{% endfor %}{% endblock %}

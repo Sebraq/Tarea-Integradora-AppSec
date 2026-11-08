@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block c %}{% if est %}<h2>{{ est.nombre }} {{ est.apellido }}</h2>
+<p>Carnet: {{ est.carnet }} | Correo: {{ est.correo }} | DPI: {{ est.dpi }}</p>
+{% if request.args.get('error') == 'nota_invalida' %}<p class="err">Nota inválida (debe ser 0-100)</p>{% endif %}
+<table><tr><th>Curso</th><th>Nota</th><th>Modificar</th></tr>
+{% for n in notas %}<tr><td>{{ n.curso }}</td><td>{{ n.nota }}</td>
+<td><form method="post" action="/notas/editar/{{ n.id }}"><input name="nota" size="5"><button>Cambiar</button></form></td></tr>{% endfor %}</table>
+<h3>Asignar nota</h3>
+<form method="post" action="/notas/nueva/{{ est.id }}">Curso <input name="curso"> Nota (0-100) <input name="nota" size="5"><button>Agregar</button></form>
+{% else %}<p>No existe.</p>{% endif %}{% endblock %}

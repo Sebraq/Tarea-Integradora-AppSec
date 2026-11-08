@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Portal Universitario (LAB)</title>
+<style>body{font-family:sans-serif;max-width:800px;margin:2rem auto}nav a{margin-right:1rem}
+table{border-collapse:collapse}td,th{border:1px solid #999;padding:4px 8px}.err{color:#b00}</style></head>
+<body>
+<nav><a href="/">Inicio</a><a href="/buscar">Buscar</a><a href="/estudiantes/nuevo">Nuevo estudiante</a><a href="/comentarios">Comentarios</a><a href="/reporte">Reporte</a>
+{% if session.usuario %}<a href="/logout">Salir ({{ session.usuario }})</a>{% else %}<a href="/login">Login</a><a href="/register">Registro</a>{% endif %}</nav><hr>
+{% block c %}{% endblock %}
+</body></html>

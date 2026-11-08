@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block c %}<h2>Registrar estudiante</h2>
+{% if errores %}<ul class="err">{% for e in errores %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+<form method="post">Carnet (8 dígitos) <input name="carnet" value="{{ valores.get('carnet','') }}"><br>
+Nombre <input name="nombre" value="{{ valores.get('nombre','') }}"><br>
+Apellido <input name="apellido" value="{{ valores.get('apellido','') }}"><br>
+Correo <input name="correo" value="{{ valores.get('correo','') }}"><br>
+DPI <input name="dpi" value="{{ valores.get('dpi','') }}"><br><button>Guardar</button></form>{% endblock %}
